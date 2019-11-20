@@ -15,41 +15,39 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class TestDbServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		// setup connection variables
 		String user = "springstudent";
 		String pass = "springstudent";
-		
+
 		String jdbcUrl = "jdbc:mysql://localhost:3306/web_customer_tracker?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-		
+
 		String driver = "com.mysql.jdbc.Driver";
-		
-		//get connection to database
+
+		// get connection to database
 		try {
 			PrintWriter out = response.getWriter();
-			
+
 			out.println("Connecting to database: " + jdbcUrl);
-			
+
 			Class.forName(driver);
-			
+
 			Connection myConn = DriverManager.getConnection(jdbcUrl, user, pass);
-			
+
 			out.println("SUCCESS!!!");
-			
+
 			myConn.close();
-		}
-		catch (Exception exc) {
+		} catch (Exception exc) {
 			exc.printStackTrace();
 			throw new ServletException(exc);
 		}
 	}
-
-
 
 }
