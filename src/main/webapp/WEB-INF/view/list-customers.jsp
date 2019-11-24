@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>List Customers</title>
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
@@ -17,6 +17,11 @@
 	</div>
 	<div id="container">
 		<div id="content">
+
+			<input type="button" value="Add Customer"
+				onClick="window.location.href='showFormForAdd'; return false;"
+				class="add-button" />
+
 			<!-- add out html table here -->
 			<table>
 				<tr>
